@@ -3,7 +3,7 @@ var canvas = document.getElementById("renderCanvas");
 canvas.style.display="block";
 var quitButton=document.getElementById("quit");
 var engine = new BABYLON.Engine(canvas, true, {preserveDrawingBuffer: true, stencil: true});
-_initCamera : function() {
+var _initCamera = function() {
 	var cam = new BABYLON.FreeCamera("camera", this.spawnPoint, this.scene);
 	cam.attachControl(this.scene.getEngine().getRenderingCanvas());
 	cam.ellipsoid = new BABYLON.Vector3(2, this.height, 2);
