@@ -3,7 +3,18 @@ var canvas = document.getElementById("renderCanvas");
 canvas.style.display="block";
 var quitButton=document.getElementById("quit");
 var engine = new BABYLON.Engine(canvas, true, {preserveDrawingBuffer: true, stencil: true});
-var _initCamera = function() {
+var createScene = function(){
+	var scene = new BABYLON.Scene(engine);
+	// The player eyes height
+	this.height = 2;
+	// The player speed
+	this.speed = 1;
+	// The player inertia
+	this.inertia = 0.9;
+	// The mouse sensibility (lower is most sensible)
+	this.angularSensibility = 1000;
+	// The player camera
+	_initCamera : function() {
 	var cam = new BABYLON.FreeCamera("camera", this.spawnPoint, this.scene);
 	cam.attachControl(this.scene.getEngine().getRenderingCanvas());
 	cam.ellipsoid = new BABYLON.Vector3(2, this.height, 2);
@@ -17,18 +28,7 @@ var _initCamera = function() {
 	cam.inertia = this.inertia;
 	cam.angularSensibility = this.angularSensibility;
 	return cam;
-};
-var createScene = function(){
-	var scene = new BABYLON.Scene(engine);
-	// The player eyes height
-	this.height = 2;
-	// The player speed
-	this.speed = 1;
-	// The player inertia
-	this.inertia = 0.9;
-	// The mouse sensibility (lower is most sensible)
-	this.angularSensibility = 1000;
-	// The player camera
+}
 	this.camera = this._initCamera();
 	var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
 	light.intensity= 0.5;
