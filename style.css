@@ -6,3 +6,6 @@ canvas {
 	height:100%;
 	display: none;
 }
+div {
+	position: absolute;
+}
