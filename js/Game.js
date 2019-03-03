@@ -1,3 +1,12 @@
+var VERSION = 1.0,
+    AUTHOR = "temechon@pixelcodr.com";
+
+// The function onload is loaded when the DOM has been loaded
+document.addEventListener("DOMContentLoaded", function () {
+    new Game('renderCanvas');
+}, false);
+
+
 Game = function(canvasId) {
 
     var canvas = document.getElementById(canvasId);
